@@ -1,682 +1,1098 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>HTML</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="31a3fb03-996e-42e7-a141-b2a2039c66a2" class="page mono"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/code_purple.svg"/></div><h1 class="page-title">HTML</h1></header><div class="page-body"><ul id="e4212ff2-64ad-4c1a-8723-d645ad8cb2dc" class="toggle"><li><details open=""><summary>1 Noções básicas de HTML</summary><ul id="bee6265e-2bf1-4208-b02d-4c0757b5d20d" class="toggle"><li><details open=""><summary>1.1 Descobrindo HTML e Tags</summary><ul id="dd97f8f6-8234-4207-aebf-cff33558fc9c" class="toggle"><li><details open=""><summary>1.1.1 Tags HTML</summary><h2 id="604a0437-2f43-4f96-ba00-07b840e6d6c8" class="">1.1.1 Tags HTML</h2><p id="fb4aac31-e28f-4187-8c22-f8629a8bbfd3" class=""><strong><strong>HTML</strong></strong> é uma linguagem de marcação de computador que estrutura todas as páginas da web na internet.</p><p id="ac48b333-73ae-4517-9e4f-9ef77693f6ca" class="">O código HTML informa aos navegadores da Web como exibir conteúdo com imagens, links e texto em uma página da Web.</p><p id="dc5aa8a6-fc3b-4ef8-b394-8fd47b4b06f5" class="">Em HTML, as coisas giram em torno de tags. As tags começam com <strong><mark class="highlight-blue_background">&lt;</mark></strong>, seguidas por uma palavra-chave e terminam com <mark class="highlight-blue_background"><strong>&gt;</strong></mark>.</p><p id="688fcefc-2315-4049-93e1-9608e9e613b4" class="">Vamos criar nossa primeira tag <mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong>&lt;button&gt;</strong></mark></strong></mark></strong></mark></strong></mark></strong></mark></strong></mark></strong></mark></strong></mark> no arquivo abaixo!</p><pre id="4196d36b-439b-4060-bec8-ade2fcc83374" class="code"><code>&lt;button&gt;</code></pre><p id="72912d39-8c9d-4206-adbc-04be97a44837" class=""><mark class="highlight-blue_background"><strong>&lt;button&gt;</strong></mark> é uma <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>tag de abertura</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>. Ele informa ao navegador da Web que queremos começar um botão.</p><p id="35402d87-32d2-4bac-8977-bfaa3914ac03" class="">A maioria das tags em HTML vem em um par, elas têm uma tag de abertura e uma tag de fechamento. O que você codificou anteriormente é a tag de abertura de um elemento botão.</p><p id="a3a10d3d-3ebf-49fe-a5e4-884634102159" class="">Vamos codificar a tag de fechamento do botão adicionando <mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong>&lt;/button&gt;</strong></mark></strong></mark></strong></mark> após a tag do botão de abertura.</p><pre id="b054b224-3106-41fc-bb09-b20b3447ca81" class="code"><code>&lt;button&gt;&lt;/button&gt;</code></pre></details></li></ul><ul id="ca802f8e-4f66-4894-b1c3-09cd98e9736d" class="toggle"><li><details open=""><summary>1.1.2 Textos e títulos</summary><p id="b08a77bd-9d37-4545-8d96-1e8c505f98db" class="">Em HTML, as palavras-chave de algumas tags são óbvias, mas existem algumas tags que usam uma forma abreviada. Por exemplo, usamos <mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong>&lt;p&gt;</strong></mark></strong></mark></strong></mark> para um parágrafo.</p><p id="a6a0bda5-98b7-4fd4-adfd-dfdde16ffa54" class="">Codificar um parágrafo é muito semelhante a codificar um botão. Você precisa de uma tag de abertura, seguida de seu texto e uma tag de fechamento.</p><pre id="a245ecbb-aa1d-4f11-ae2d-474e371a6312" class="code"><code>&lt;p&gt;Aprender Desenvolvimento Web é Divertido!&lt;/p&gt;</code></pre><p id="637e455e-7ae5-4d28-a97d-8f562171a30e" class="">A tag de cabeçalho enfatiza os textos, tornando-os maiores e mais ousados. <mark class="highlight-blue_background"><strong>&lt;h1&gt;</strong></mark> é o maior e mais negrito e <mark class="highlight-blue_background"><strong>&lt;h6&gt;</strong></mark> é o menor e menos negrito.</p><pre id="99128387-caf2-483d-835d-63ea3060e440" class="code"><code>&lt;h1&gt;Título Principal da Página&lt;/h1&gt;
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+      }
+      .simple-table td {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table th {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+      }
+      .simple-table-header {
+        font-weight: 500;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+          "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      .code {
+        font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono",
+          "Liberation Mono", Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+          "Noto Sans CJK JP";
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+          "Noto Sans CJK SC";
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+          "Noto Sans CJK TC";
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+          "Noto Sans CJK KR";
+      }
+      .pdf .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK JP";
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK SC";
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK TC";
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK KR";
+      }
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK JP";
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK SC";
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK TC";
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK KR";
+      }
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK JP";
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC";
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK TC";
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK KR";
+      }
+      .highlight-default {
+        color: rgba(55, 53, 47, 1);
+      }
+      .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+      .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+      .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+      .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+      .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+      .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+      .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+      .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+      .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+      }
+      .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+      .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+      .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+      .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+      .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+      .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+      }
+      .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+      }
+      .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+      .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+      .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+      .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+      .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+      .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+      .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+      .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+      .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+      }
+      .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+      .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+      .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+      .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+      .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+      .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+      }
+      .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+      }
+      .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+      .select-value-color-pink {
+        background-color: rgba(245, 224, 233, 1);
+      }
+      .select-value-color-purple {
+        background-color: rgba(232, 222, 238, 1);
+      }
+      .select-value-color-green {
+        background-color: rgba(219, 237, 219, 1);
+      }
+      .select-value-color-gray {
+        background-color: rgba(227, 226, 224, 1);
+      }
+      .select-value-color-opaquegray {
+        background-color: rgba(255, 255, 255, 0.0375);
+      }
+      .select-value-color-orange {
+        background-color: rgba(250, 222, 201, 1);
+      }
+      .select-value-color-brown {
+        background-color: rgba(238, 224, 218, 1);
+      }
+      .select-value-color-red {
+        background-color: rgba(255, 226, 221, 1);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(253, 236, 200, 1);
+      }
+      .select-value-color-blue {
+        background-color: rgba(211, 229, 239, 1);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <article id="31a3fb03-996e-42e7-a141-b2a2039c66a2" class="page mono">
+      <header>
+        <img
+          class="page-cover-image"
+          src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb"
+          style="object-position: center 50%"
+        />
+        <div class="page-header-icon page-header-icon-with-cover">
+          <img class="icon" src="https://www.notion.so/icons/code_purple.svg" />
+        </div>
+        <h1 class="page-title">HTML</h1>
+      </header>
+      <div class="page-body">
+        <ul id="e4212ff2-64ad-4c1a-8723-d645ad8cb2dc" class="toggle">
+          <li>
+            <details open="">
+              <summary>1 Noções básicas de HTML</summary>
+              <ul id="bee6265e-2bf1-4208-b02d-4c0757b5d20d" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>1.1 Descobrindo HTML e Tags</summary>
+                    <ul
+                      id="dd97f8f6-8234-4207-aebf-cff33558fc9c"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>1.1.1 Tags HTML</summary>
+                          <h2
+                            id="604a0437-2f43-4f96-ba00-07b840e6d6c8"
+                            class=""
+                          >
+                            1.1.1 Tags HTML
+                          </h2>
+                          <p id="fb4aac31-e28f-4187-8c22-f8629a8bbfd3" class="">
+                            <strong><strong>HTML</strong></strong> é uma
+                            linguagem de marcação de computador que estrutura
+                            todas as páginas da web na internet.
+                          </p>
+                          <p id="ac48b333-73ae-4517-9e4f-9ef77693f6ca" class="">
+                            O código HTML informa aos navegadores da Web como
+                            exibir conteúdo com imagens, links e texto em uma
+                            página da Web.
+                          </p>
+                          <p id="dc5aa8a6-fc3b-4ef8-b394-8fd47b4b06f5" class="">
+                            Em HTML, as coisas giram em torno de tags. As tags
+                            começam com
+                            <strong
+                              ><mark class="highlight-blue_background"
+                                >&lt;</mark
+                              ></strong
+                            >, seguidas por uma palavra-chave e terminam com
+                            <mark class="highlight-blue_background"
+                              ><strong>&gt;</strong></mark
+                            >.
+                          </p>
+                          <p id="688fcefc-2315-4049-93e1-9608e9e613b4" class="">
+                            Vamos criar nossa primeira tag
+                            <mark class="highlight-blue_background"
+                              ><strong
+                                ><mark class="highlight-blue_background"
+                                  ><strong
+                                    ><mark class="highlight-blue_background"
+                                      ><strong
+                                        ><mark class="highlight-blue_background"
+                                          ><strong
+                                            ><mark
+                                              class="highlight-blue_background"
+                                              ><strong
+                                                ><mark
+                                                  class="highlight-blue_background"
+                                                  ><strong
+                                                    ><mark
+                                                      class="highlight-blue_background"
+                                                      ><strong
+                                                        ><mark
+                                                          class="highlight-blue_background"
+                                                          ><strong
+                                                            >&lt;button&gt;</strong
+                                                          ></mark
+                                                        ></strong
+                                                      ></mark
+                                                    ></strong
+                                                  ></mark
+                                                ></strong
+                                              ></mark
+                                            ></strong
+                                          ></mark
+                                        ></strong
+                                      ></mark
+                                    ></strong
+                                  ></mark
+                                ></strong
+                              ></mark
+                            >
+                            no arquivo abaixo!
+                          </p>
+                          <pre
+                            id="4196d36b-439b-4060-bec8-ade2fcc83374"
+                            class="code"
+                          ><code>&lt;button&gt;</code></pre>
+                          <p id="72912d39-8c9d-4206-adbc-04be97a44837" class="">
+                            <mark class="highlight-blue_background"
+                              ><strong>&lt;button&gt;</strong></mark
+                            >
+                            é uma
+                            <strong
+                              ><strong
+                                ><strong
+                                  ><strong
+                                    ><strong
+                                      ><strong
+                                        ><strong
+                                          ><strong
+                                            ><strong
+                                              ><strong
+                                                ><strong
+                                                  ><strong
+                                                    ><strong
+                                                      ><strong
+                                                        ><strong
+                                                          >tag de
+                                                          abertura</strong
+                                                        ></strong
+                                                      ></strong
+                                                    ></strong
+                                                  ></strong
+                                                ></strong
+                                              ></strong
+                                            ></strong
+                                          ></strong
+                                        ></strong
+                                      ></strong
+                                    ></strong
+                                  ></strong
+                                ></strong
+                              ></strong
+                            >. Ele informa ao navegador da Web que queremos
+                            começar um botão.
+                          </p>
+                          <p id="35402d87-32d2-4bac-8977-bfaa3914ac03" class="">
+                            A maioria das tags em HTML vem em um par, elas têm
+                            uma tag de abertura e uma tag de fechamento. O que
+                            você codificou anteriormente é a tag de abertura de
+                            um elemento botão.
+                          </p>
+                          <p id="a3a10d3d-3ebf-49fe-a5e4-884634102159" class="">
+                            Vamos codificar a tag de fechamento do botão
+                            adicionando
+                            <mark class="highlight-blue_background"
+                              ><strong
+                                ><mark class="highlight-blue_background"
+                                  ><strong
+                                    ><mark class="highlight-blue_background"
+                                      ><strong>&lt;/button&gt;</strong></mark
+                                    ></strong
+                                  ></mark
+                                ></strong
+                              ></mark
+                            >
+                            após a tag do botão de abertura.
+                          </p>
+                          <pre
+                            id="b054b224-3106-41fc-bb09-b20b3447ca81"
+                            class="code"
+                          ><code>&lt;button&gt;&lt;/button&gt;</code></pre>
+                        </details>
+                      </li>
+                    </ul>
+                    <ul
+                      id="ca802f8e-4f66-4894-b1c3-09cd98e9736d"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>1.1.2 Textos e títulos</summary>
+                          <p id="b08a77bd-9d37-4545-8d96-1e8c505f98db" class="">
+                            Em HTML, as palavras-chave de algumas tags são
+                            óbvias, mas existem algumas tags que usam uma forma
+                            abreviada. Por exemplo, usamos
+                            <mark class="highlight-blue_background"
+                              ><strong
+                                ><mark class="highlight-blue_background"
+                                  ><strong
+                                    ><mark class="highlight-blue_background"
+                                      ><strong>&lt;p&gt;</strong></mark
+                                    ></strong
+                                  ></mark
+                                ></strong
+                              ></mark
+                            >
+                            para um parágrafo.
+                          </p>
+                          <p id="a6a0bda5-98b7-4fd4-adfd-dfdde16ffa54" class="">
+                            Codificar um parágrafo é muito semelhante a
+                            codificar um botão. Você precisa de uma tag de
+                            abertura, seguida de seu texto e uma tag de
+                            fechamento.
+                          </p>
+                          <pre
+                            id="a245ecbb-aa1d-4f11-ae2d-474e371a6312"
+                            class="code"
+                          ><code>&lt;p&gt;Aprender Desenvolvimento Web é Divertido!&lt;/p&gt;</code></pre>
+                          <p id="637e455e-7ae5-4d28-a97d-8f562171a30e" class="">
+                            A tag de cabeçalho enfatiza os textos, tornando-os
+                            maiores e mais ousados.
+                            <mark class="highlight-blue_background"
+                              ><strong>&lt;h1&gt;</strong></mark
+                            >
+                            é o maior e mais negrito e
+                            <mark class="highlight-blue_background"
+                              ><strong>&lt;h6&gt;</strong></mark
+                            >
+                            é o menor e menos negrito.
+                          </p>
+                          <pre
+                            id="99128387-caf2-483d-835d-63ea3060e440"
+                            class="code"
+                          ><code>&lt;h1&gt;Título Principal da Página&lt;/h1&gt;
 
 &lt;h2&gt;Título de tópicos&lt;/h2&gt;
 
-&lt;h3&gt;Título de Subtópicos&lt;/h3&gt;</code></pre></details></li></ul><ul id="edf28186-7b6f-4720-8022-128eeb809911" class="toggle"><li><details open=""><summary>1.1.3 Estrutura da página Web</summary><p id="fe7e0f21-53cf-4664-8731-f41170eca0cf" class="">Um <strong>elemento</strong> é o que chamamos de tag de abertura, tag de fechamento e código intermediário.</p><pre id="92ffdc6b-681b-4ea3-8163-8ceee967fb06" class="code"><code>&lt;button&gt;Hello, World!&lt;/button&gt;</code></pre><p id="f7871558-bc47-4ccc-8f25-f7bc5d08a723" class="">Para criar uma página da Web, você precisará de uma tag HTML de abertura e fechamento.</p><pre id="887c6d83-ddfd-48b9-b7c2-5b76fcdf4321" class="code"><code>&lt;html&gt;
+&lt;h3&gt;Título de Subtópicos&lt;/h3&gt;</code></pre>
+                        </details>
+                      </li>
+                    </ul>
+                    <ul
+                      id="edf28186-7b6f-4720-8022-128eeb809911"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>1.1.3 Estrutura da página Web</summary>
+                          <p id="fe7e0f21-53cf-4664-8731-f41170eca0cf" class="">
+                            Um <strong>elemento</strong> é o que chamamos de tag
+                            de abertura, tag de fechamento e código
+                            intermediário.
+                          </p>
+                          <pre
+                            id="92ffdc6b-681b-4ea3-8163-8ceee967fb06"
+                            class="code"
+                          ><code>&lt;button&gt;Hello, World!&lt;/button&gt;</code></pre>
+                          <p id="f7871558-bc47-4ccc-8f25-f7bc5d08a723" class="">
+                            Para criar uma página da Web, você precisará de uma
+                            tag HTML de abertura e fechamento.
+                          </p>
+                          <pre
+                            id="887c6d83-ddfd-48b9-b7c2-5b76fcdf4321"
+                            class="code"
+                          ><code>&lt;html&gt;
 
-&lt;/html&gt;</code></pre><p id="957c4ae8-e9dd-41b2-813d-4152b8d153ed" class="">Os elementos <mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong>html</strong></mark></strong></mark></strong></mark></strong></mark> e <mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong>body</strong></mark></strong></mark></strong></mark></strong></mark> (corpo) formam a estrutura de uma página da web. Colocamos os elementos que queremos exibir dentro do corpo da página.</p><pre id="286a47ef-ad76-4727-8384-464dd55c3b24" class="code"><code>&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="957c4ae8-e9dd-41b2-813d-4152b8d153ed" class="">
+                            Os elementos
+                            <mark class="highlight-blue_background"
+                              ><strong
+                                ><mark class="highlight-blue_background"
+                                  ><strong
+                                    ><mark class="highlight-blue_background"
+                                      ><strong
+                                        ><mark class="highlight-blue_background"
+                                          ><strong>html</strong></mark
+                                        ></strong
+                                      ></mark
+                                    ></strong
+                                  ></mark
+                                ></strong
+                              ></mark
+                            >
+                            e
+                            <mark class="highlight-blue_background"
+                              ><strong
+                                ><mark class="highlight-blue_background"
+                                  ><strong
+                                    ><mark class="highlight-blue_background"
+                                      ><strong
+                                        ><mark class="highlight-blue_background"
+                                          ><strong>body</strong></mark
+                                        ></strong
+                                      ></mark
+                                    ></strong
+                                  ></mark
+                                ></strong
+                              ></mark
+                            >
+                            (corpo) formam a estrutura de uma página da web.
+                            Colocamos os elementos que queremos exibir dentro do
+                            corpo da página.
+                          </p>
+                          <pre
+                            id="286a47ef-ad76-4727-8384-464dd55c3b24"
+                            class="code"
+                          ><code>&lt;html&gt;
 	&lt;body&gt;
 
   &lt;/body&gt;
-&lt;/html&gt;</code></pre></details></li></ul></details></li></ul><ul id="a803ff56-a48e-4fff-8440-057a56bfaed1" class="toggle"><li><details open=""><summary>1.2 Estruturando texto com tags</summary><ul id="1a415b72-3e8f-4e04-bfa6-05846cd059f7" class="toggle"><li><details open=""><summary>1.2.1 Quebra de linha, ênfase e importância</summary><p id="28c1b618-9bd9-4db6-a7c4-a22c85899491" class="">Às vezes queremos formatar parágrafos com quebras de linha.</p><p id="2e6a3b3d-beba-40e8-95ac-1cb8dc24cb49" class="">Por exemplo, essa música ficaria muito melhor se <code>Raindrops on roses</code>aparecesse em uma linha, <code>Whiskers on kittens</code>na próxima e assim por diante.</p><pre id="cd378c51-cde0-4208-80e5-1cb536107c16" class="code"><code>&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+              <ul id="a803ff56-a48e-4fff-8440-057a56bfaed1" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>1.2 Estruturando texto com tags</summary>
+                    <ul
+                      id="1a415b72-3e8f-4e04-bfa6-05846cd059f7"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>
+                            1.2.1 Quebra de linha, ênfase e importância
+                          </summary>
+                          <p id="28c1b618-9bd9-4db6-a7c4-a22c85899491" class="">
+                            Às vezes queremos formatar parágrafos com quebras de
+                            linha.
+                          </p>
+                          <p id="2e6a3b3d-beba-40e8-95ac-1cb8dc24cb49" class="">
+                            Por exemplo, essa música ficaria muito melhor
+                            se <code>Raindrops on roses</code>aparecesse em uma
+                            linha, <code>Whiskers on kittens</code>na próxima e
+                            assim por diante.
+                          </p>
+                          <pre
+                            id="cd378c51-cde0-4208-80e5-1cb536107c16"
+                            class="code"
+                          ><code>&lt;html&gt;
 	 &lt;body&gt;
 		  &lt;h1&gt;My favorite things&lt;/h1&gt;
 		  &lt;p&gt;
@@ -686,7 +1102,56 @@ blockquote {
 		   Warm woolen mittens
 		  &lt;/p&gt;
 	 &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="3c3efea3-921d-4576-ae6a-4507c5c23750" class=""><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong><mark class="highlight-blue_background"><strong>&lt;br&gt;</strong></mark></strong></mark></strong></mark></strong></mark> é uma <strong><strong><strong><strong><strong><strong><strong><strong><strong>tag vazia</strong></strong></strong></strong></strong></strong></strong></strong></strong>. Tags vazias não possuem tag de fechamento e nenhum conteúdo. Eles também são chamados de tags de fechamento automático.</p><p id="184d445c-797a-4907-a120-ab2ee588c6f3" class="">Há um elemento para dar ênfase ao texto, torna-o <em>itálico</em> . Chama-se <code>em </code>elemento. Adicione <code>&lt;em&gt;</code> e <code>&lt;/em&gt;</code>.</p><pre id="e1aa5610-7bbb-4b8f-894c-ed5ab70815e2" class="code"><code>&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="3c3efea3-921d-4576-ae6a-4507c5c23750" class="">
+                            <mark class="highlight-blue_background"
+                              ><strong
+                                ><mark class="highlight-blue_background"
+                                  ><strong
+                                    ><mark class="highlight-blue_background"
+                                      ><strong
+                                        ><mark class="highlight-blue_background"
+                                          ><strong>&lt;br&gt;</strong></mark
+                                        ></strong
+                                      ></mark
+                                    ></strong
+                                  ></mark
+                                ></strong
+                              ></mark
+                            >
+                            é uma
+                            <strong
+                              ><strong
+                                ><strong
+                                  ><strong
+                                    ><strong
+                                      ><strong
+                                        ><strong
+                                          ><strong
+                                            ><strong>tag vazia</strong></strong
+                                          ></strong
+                                        ></strong
+                                      ></strong
+                                    ></strong
+                                  ></strong
+                                ></strong
+                              ></strong
+                            >. Tags vazias não possuem tag de fechamento e
+                            nenhum conteúdo. Eles também são chamados de tags de
+                            fechamento automático.
+                          </p>
+                          <p id="184d445c-797a-4907-a120-ab2ee588c6f3" class="">
+                            Há um elemento para dar ênfase ao texto,
+                            torna-o <em>itálico</em> . Chama-se
+                            <code>em </code>elemento. Adicione <code
+                              >&lt;em&gt;</code
+                            >
+                            e <code>&lt;/em&gt;</code>.
+                          </p>
+                          <pre
+                            id="e1aa5610-7bbb-4b8f-894c-ed5ab70815e2"
+                            class="code"
+                          ><code>&lt;html&gt;
 	 &lt;body&gt;
 		  &lt;h1&gt;My favorite things&lt;/h1&gt;
 		  &lt;p&gt;
@@ -696,7 +1161,17 @@ blockquote {
 		   Warm woolen mittens
 		  &lt;/p&gt;
 	 &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="23e1d042-9034-4fc0-be5f-a3189e5dda39" class="">Para definir textos como importantes, usamos as tags <code>&lt;strong&gt;</code>e . <code>&lt;/strong&gt;</code>Torna o texto em <strong>negrito</strong> .</p><pre id="7a8846f6-4b55-4ee8-858d-2a9eece9d535" class="code"><code>&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="23e1d042-9034-4fc0-be5f-a3189e5dda39" class="">
+                            Para definir textos como importantes, usamos
+                            as tags <code>&lt;strong&gt;</code>e
+                            . <code>&lt;/strong&gt;</code>Torna o texto
+                            em <strong>negrito</strong> .
+                          </p>
+                          <pre
+                            id="7a8846f6-4b55-4ee8-858d-2a9eece9d535"
+                            class="code"
+                          ><code>&lt;html&gt;
 	 &lt;body&gt;
 		  &lt;h1&gt;My favorite things&lt;/h1&gt;
 		  &lt;p&gt;
@@ -704,14 +1179,67 @@ blockquote {
 		   Whiskers on &lt;strong&gt;kittens&lt;/strong&gt; 
 		  &lt;/p&gt;
 	 &lt;/body&gt;
-&lt;/html&gt;</code></pre></details></li></ul><ul id="a393ba05-1234-41b5-959e-d4b72715a893" class="toggle"><li><details open=""><summary>1.2.2 Cabeçalho, título e doctype</summary><p id="7e64d413-9812-4538-a882-5607182b5ea4" class="">O <code>head</code>elemento HTML, <code>&lt;head&gt;&lt;/head&gt;</code>, é um contêiner para informações sobre uma página da Web, como seu título. Ele vai antes da etiqueta do corpo.</p><pre id="72fd1391-e87d-4a54-a701-3be43d4d9c44" class="code"><code>&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                        </details>
+                      </li>
+                    </ul>
+                    <ul
+                      id="a393ba05-1234-41b5-959e-d4b72715a893"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>1.2.2 Cabeçalho, título e doctype</summary>
+                          <p id="7e64d413-9812-4538-a882-5607182b5ea4" class="">
+                            O <code>head</code>elemento
+                            HTML, <code>&lt;head&gt;&lt;/head&gt;</code>, é um
+                            contêiner para informações sobre uma página da Web,
+                            como seu título. Ele vai antes da etiqueta do corpo.
+                          </p>
+                          <pre
+                            id="72fd1391-e87d-4a54-a701-3be43d4d9c44"
+                            class="code"
+                          ><code>&lt;html&gt;
 	 &lt;head&gt;
 	
 	 &lt;/head&gt;
 	 &lt;body&gt;
 	 
 	 &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="a5eb34fb-7df8-4f88-971c-94b63295020e" class="">O <strong>título</strong> de uma página da web aparece na guia ou janela do navegador da web.</p><p id="914a1743-fcf9-4cd1-8fc6-f68690be551f" class="">Nas guias abaixo, há dois títulos de página da web: <em>Minha página da web</em> e <em>Google</em> .</p><figure id="003ff039-697f-4fe7-939c-efd2b85f2022" class="image"><a href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/ae60f234-543c-4870-8bed-fca23d7571f8.webp"><img style="width:1504px" src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/ae60f234-543c-4870-8bed-fca23d7571f8.webp"/></a></figure><p id="13dd2cf7-a609-497a-918c-504046ca251e" class="">Para dar um título a uma página da Web, adicionamos <code>&lt;title&gt;</code>e <code>&lt;/title&gt;</code>dentro das tags head.</p><p id="25f32c44-ff27-4b11-ad5d-f0986d7dfa58" class="">Observe que o <code>title</code>não é visível, mas fornece informações ao navegador.</p><pre id="f6fee7fb-0761-4a48-a3a6-ef7ad6045edf" class="code"><code>&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="a5eb34fb-7df8-4f88-971c-94b63295020e" class="">
+                            O <strong>título</strong> de uma página da web
+                            aparece na guia ou janela do navegador da web.
+                          </p>
+                          <p id="914a1743-fcf9-4cd1-8fc6-f68690be551f" class="">
+                            Nas guias abaixo, há dois títulos de página da
+                            web: <em>Minha página da web</em
+                            > e <em>Google</em> .
+                          </p>
+                          <figure
+                            id="003ff039-697f-4fe7-939c-efd2b85f2022"
+                            class="image"
+                          >
+                            <a
+                              href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/ae60f234-543c-4870-8bed-fca23d7571f8.webp"
+                              ><img
+                                style="width: 1504px"
+                                src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/ae60f234-543c-4870-8bed-fca23d7571f8.webp"
+                            /></a>
+                          </figure>
+                          <p id="13dd2cf7-a609-497a-918c-504046ca251e" class="">
+                            Para dar um título a uma página da Web,
+                            adicionamos <code>&lt;title&gt;</code>e <code>&lt;/title&gt;</code>dentro
+                            das tags head.
+                          </p>
+                          <p id="25f32c44-ff27-4b11-ad5d-f0986d7dfa58" class="">
+                            Observe que o <code>title</code>não é visível, mas
+                            fornece informações ao navegador.
+                          </p>
+                          <pre
+                            id="f6fee7fb-0761-4a48-a3a6-ef7ad6045edf"
+                            class="code"
+                          ><code>&lt;html&gt;
 	 &lt;head&gt;
 		 &lt;title&gt;My webpage&lt;/title&gt;
 	 &lt;/head&gt;
@@ -722,7 +1250,20 @@ blockquote {
 			  Whiskers on &lt;strong&gt;kittens&lt;/strong&gt; 
 			  &lt;/p&gt;
 		 &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="ebbf273e-3af2-401a-8aae-e8d87374fb30" class="">O <strong>doctype</strong> informa ao navegador da Web qual versão do HTML estamos usando. Sem ele, o navegador pode não exibir a página corretamente.</p><p id="36e417e8-ee96-4379-94df-26eade8bdac6" class="">Como estamos usando a versão mais recente, usamos <code>&lt;!doctype html&gt;</code>.</p><pre id="3c3b5fe5-c782-44fa-8eb3-598d968db08e" class="code"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="ebbf273e-3af2-401a-8aae-e8d87374fb30" class="">
+                            O <strong>doctype</strong> informa ao navegador da
+                            Web qual versão do HTML estamos usando. Sem ele, o
+                            navegador pode não exibir a página corretamente.
+                          </p>
+                          <p id="36e417e8-ee96-4379-94df-26eade8bdac6" class="">
+                            Como estamos usando a versão mais recente,
+                            usamos <code>&lt;!doctype html&gt;</code>.
+                          </p>
+                          <pre
+                            id="3c3b5fe5-c782-44fa-8eb3-598d968db08e"
+                            class="code"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 	 &lt;head&gt;
 		 &lt;title&gt;My webpage&lt;/title&gt;
@@ -732,7 +1273,58 @@ blockquote {
 		  &lt;p&gt; Raindrops on &lt;em&gt;roses&lt;/em&gt;&lt;br&gt;
 			Whiskers on &lt;strong&gt;kittens&lt;/strong&gt;&lt;/p&gt;  
 	 &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="6f946004-9c17-494b-bc5b-c94f8f9e7ba2" class="">O doctype se parece com uma <code>doctype</code> tag vazia com um <code>html</code> atributo vazio: <code>&lt;!doctype html&gt;</code>.</p><p id="fd8cd598-17c2-4d2d-87c8-80ff494b20ef" class="">Os atributos fornecem informações adicionais às tags. Você aprenderá mais sobre eles em capítulos posteriores.</p></details></li></ul></details></li></ul><ul id="cbc80e2c-3cd1-4b45-8e4f-540d593f32fb" class="toggle"><li><details open=""><summary>1.3 Botões de construção</summary><ul id="1f5e0125-4f36-41d2-ac0c-8046a5c476dd" class="toggle"><li><details open=""><summary>1.3.1 Botões</summary><p id="b6b863a8-b239-4016-a0ba-a0a7c063194e" class="">Com botões, os programas alteram as páginas da Web com base no comportamento do usuário.</p><p id="2c03bdab-b8f1-4f52-9ae6-408481b2aa14" class="">Aprenderemos como escrever esse código mais tarde. Por enquanto, vamos nos concentrar no elemento <code>button</code>.</p><p id="4215974f-3ba8-41ea-9b7e-ab3129665df1" class="">Para criar um botão que os usuários possam clicar, precisamos das tags de abertura <code>&lt;button&gt;</code>e fechamento <code>&lt;/button&gt;</code>.</p><p id="64ffd251-fcfa-4c0d-992a-4b538d5eb1eb" class="">Podemos fazer com que os textos apareçam em um botão digitando-os entre as tags.</p><pre id="150cf12e-bb66-41cf-a133-51d5e72f0856" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="6f946004-9c17-494b-bc5b-c94f8f9e7ba2" class="">
+                            O doctype se parece com uma <code>doctype</code> tag
+                            vazia com um <code>html</code> atributo vazio: <code
+                              >&lt;!doctype html&gt;</code
+                            >.
+                          </p>
+                          <p id="fd8cd598-17c2-4d2d-87c8-80ff494b20ef" class="">
+                            Os atributos fornecem informações adicionais às
+                            tags. Você aprenderá mais sobre eles em capítulos
+                            posteriores.
+                          </p>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+              <ul id="cbc80e2c-3cd1-4b45-8e4f-540d593f32fb" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>1.3 Botões de construção</summary>
+                    <ul
+                      id="1f5e0125-4f36-41d2-ac0c-8046a5c476dd"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>1.3.1 Botões</summary>
+                          <p id="b6b863a8-b239-4016-a0ba-a0a7c063194e" class="">
+                            Com botões, os programas alteram as páginas da Web
+                            com base no comportamento do usuário.
+                          </p>
+                          <p id="2c03bdab-b8f1-4f52-9ae6-408481b2aa14" class="">
+                            Aprenderemos como escrever esse código mais
+                            tarde. Por enquanto, vamos nos concentrar no
+                            elemento <code>button</code>.
+                          </p>
+                          <p id="4215974f-3ba8-41ea-9b7e-ab3129665df1" class="">
+                            Para criar um botão que os usuários possam clicar,
+                            precisamos das tags de
+                            abertura <code>&lt;button&gt;</code>e fechamento
+                            <code>&lt;/button&gt;</code>.
+                          </p>
+                          <p id="64ffd251-fcfa-4c0d-992a-4b538d5eb1eb" class="">
+                            Podemos fazer com que os textos apareçam em um botão
+                            digitando-os entre as tags.
+                          </p>
+                          <pre
+                            id="150cf12e-bb66-41cf-a133-51d5e72f0856"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;
   &lt;h1&gt;Facebook&lt;/h1&gt;
@@ -741,7 +1333,16 @@ blockquote {
 	&lt;/p&gt;
   &lt;button&gt;Login&lt;/button&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="7aa7929a-98c2-4e68-9cb0-525fda50e0a3" class="">Anteriormente, aprendemos como enfatizar ou tornar o texto importante. Também podemos usar essas tags para o texto dentro de um botão.</p><pre id="db28ce46-acaa-4426-a72e-ef2567e4fde2" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="7aa7929a-98c2-4e68-9cb0-525fda50e0a3" class="">
+                            Anteriormente, aprendemos como enfatizar ou tornar o
+                            texto importante. Também podemos usar essas tags
+                            para o texto dentro de um botão.
+                          </p>
+                          <pre
+                            id="db28ce46-acaa-4426-a72e-ef2567e4fde2"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;
   &lt;h3&gt;Warning&lt;/h3&gt;
@@ -750,14 +1351,43 @@ blockquote {
 	&lt;/p&gt;
   &lt;button&gt;&lt;strong&gt;continue anyway&lt;/strong&gt;&lt;/button&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="e60b3c3c-2245-416f-a470-1164f8b987fb" class="">Os botões são exibidos um ao lado do outro, mesmo que estejam em linhas de código separadas.</p><pre id="233b3c2e-7e23-4743-b193-1fc2d34edffa" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <p id="e60b3c3c-2245-416f-a470-1164f8b987fb" class="">
+                            Os botões são exibidos um ao lado do outro, mesmo
+                            que estejam em linhas de código separadas.
+                          </p>
+                          <pre
+                            id="233b3c2e-7e23-4743-b193-1fc2d34edffa"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;
   &lt;button&gt;First&lt;/button&gt;
   &lt;button&gt;Second&lt;/button&gt;
   &lt;button&gt;Third&lt;/button&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><figure id="10fe487a-667a-4a50-8793-62c917bb1c71" class="image"><a href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled.png"><img style="width:200px" src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled.png"/></a></figure><p id="d17421c7-8306-4f67-9a42-769c65210a53" class="">Se quisermos que os botões sejam empilhados uns sobre os outros, podemos usar a tag <code>&lt;br&gt; </code>para colocar cada botão em uma nova linha.</p><pre id="5d55ba03-4049-461d-8b8b-ab3767eb9798" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <figure
+                            id="10fe487a-667a-4a50-8793-62c917bb1c71"
+                            class="image"
+                          >
+                            <a
+                              href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled.png"
+                              ><img
+                                style="width: 200px"
+                                src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled.png"
+                            /></a>
+                          </figure>
+                          <p id="d17421c7-8306-4f67-9a42-769c65210a53" class="">
+                            Se quisermos que os botões sejam empilhados uns
+                            sobre os outros, podemos usar a tag <code
+                              >&lt;br&gt; </code
+                            >para colocar cada botão em uma nova linha.
+                          </p>
+                          <pre
+                            id="5d55ba03-4049-461d-8b8b-ab3767eb9798"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;
   &lt;h3&gt;Stack of Pancakes&lt;/h3&gt;
@@ -768,43 +1398,313 @@ Log in or sign up to view the best photos of pancakes across the globe.
 	&lt;br&gt;
   &lt;button&gt;Sign up&lt;/button&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><figure id="45ff09f3-ec38-4bce-a62b-6f3346e97cfc" class="image"><a href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%201.png"><img style="width:360px" src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%201.png"/></a></figure></details></li></ul></details></li></ul><ul id="784ba9fb-920d-4287-a2f0-1b9450039e9b" class="toggle"><li><details open=""><summary>1.4 Criando Links</summary><ul id="7bf0d043-f61d-4e6f-8212-464e3fcb0867" class="toggle"><li><details open=""><summary>1.4.1 Links e atributos</summary><p id="e781ded7-2dda-4aab-b739-8a95044f9762" class="">Vamos dar uma olhada em como os links funcionam para combinar <strong>páginas</strong> da Web em <strong>sites</strong>.</p><p id="6f12e5f9-fb19-4aac-abfd-70a72ac557a7" class="">Para começar a criar um link, adicionamos o texto entre as tags <code>&lt;a&gt;</code>e <code>&lt;/a&gt;</code>. Isso ainda não destacará o texto.</p><p id="06ca7958-6c45-4f6c-9528-076d39c894e0" class=""><code>&lt;a&gt;</code>significa tag &quot;Âncora&quot;.</p><pre id="9076cd28-c08f-4df3-8a61-dd2a3d852fcb" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <figure
+                            id="45ff09f3-ec38-4bce-a62b-6f3346e97cfc"
+                            class="image"
+                          >
+                            <a
+                              href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%201.png"
+                              ><img
+                                style="width: 360px"
+                                src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%201.png"
+                            /></a>
+                          </figure>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+              <ul id="784ba9fb-920d-4287-a2f0-1b9450039e9b" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>1.4 Criando Links</summary>
+                    <ul
+                      id="7bf0d043-f61d-4e6f-8212-464e3fcb0867"
+                      class="toggle"
+                    >
+                      <li>
+                        <details open="">
+                          <summary>1.4.1 Links e atributos</summary>
+                          <p id="e781ded7-2dda-4aab-b739-8a95044f9762" class="">
+                            Vamos dar uma olhada em como os links funcionam para
+                            combinar <strong>páginas</strong> da Web
+                            em <strong>sites</strong>.
+                          </p>
+                          <p id="6f12e5f9-fb19-4aac-abfd-70a72ac557a7" class="">
+                            Para começar a criar um link, adicionamos o texto
+                            entre
+                            as tags <code>&lt;a&gt;</code>e <code>&lt;/a&gt;</code>.
+                            Isso ainda não destacará o texto.
+                          </p>
+                          <p id="06ca7958-6c45-4f6c-9528-076d39c894e0" class="">
+                            <code>&lt;a&gt;</code>significa tag
+                            &quot;Âncora&quot;.
+                          </p>
+                          <pre
+                            id="9076cd28-c08f-4df3-8a61-dd2a3d852fcb"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;  
 	&lt;a&gt;Learn to Code&lt;/a&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><figure id="d1e1f017-cde7-469e-8e80-2f3ce85b257f" class="image"><a href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%202.png"><img style="width:206px" src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%202.png"/></a></figure><p id="e91affbc-900d-43c7-9eed-a983c375c95f" class="">Para vincular o texto a uma página da Web, adicionamos <code>href=&quot;&quot;</code>um Uniform Resource Locator (<strong>URL</strong>). <code>href</code>é a abreviação de &quot;referência de hipertexto&quot;.</p><pre id="41db5281-d0fa-4054-b805-f041292d552b" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <figure
+                            id="d1e1f017-cde7-469e-8e80-2f3ce85b257f"
+                            class="image"
+                          >
+                            <a
+                              href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%202.png"
+                              ><img
+                                style="width: 206px"
+                                src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%202.png"
+                            /></a>
+                          </figure>
+                          <p id="e91affbc-900d-43c7-9eed-a983c375c95f" class="">
+                            Para vincular o texto a uma página da Web,
+                            adicionamos <code>href=&quot;&quot;</code>um Uniform
+                            Resource Locator (<strong>URL</strong>).
+                            <code>href</code>é a abreviação de &quot;referência
+                            de hipertexto&quot;.
+                          </p>
+                          <pre
+                            id="41db5281-d0fa-4054-b805-f041292d552b"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;
   &lt;a href=&quot;https://getmimo.com&quot;&gt;Learn to Code&lt;/a&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><figure id="6182ab68-1608-4e4a-9bb3-29964835a920" class="image"><a href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%203.png"><img style="width:212px" src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%203.png"/></a></figure><p id="cfe45eba-1a03-4de6-9f2c-45703a94e134" class=""><code>href</code>é um <strong>atributo</strong> . Todos os atributos têm duas coisas em comum: eles fornecem informações extras e vão dentro da tag de abertura.</p><p id="a7ce3671-691d-4588-b4f7-f6d3efde455f" class="">Os atributos são adicionados após o nome da tag e antes do <code>&gt;</code>sinal de fechamento.</p><p id="e71d0998-df61-494d-9c50-b0bf2da04e14" class="">Vinculamos a uma página da Web adicionando <code>=</code>após o atributo e um URL como um valor entre aspas.</p><pre id="a7fb0326-df2e-4a36-b0e3-56f1f98058cb" class="code code-wrap"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                          <figure
+                            id="6182ab68-1608-4e4a-9bb3-29964835a920"
+                            class="image"
+                          >
+                            <a
+                              href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%203.png"
+                              ><img
+                                style="width: 212px"
+                                src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%203.png"
+                            /></a>
+                          </figure>
+                          <p id="cfe45eba-1a03-4de6-9f2c-45703a94e134" class="">
+                            <code>href</code>é
+                            um <strong>atributo</strong> . Todos os atributos
+                            têm duas coisas em comum: eles fornecem informações
+                            extras e vão dentro da tag de abertura.
+                          </p>
+                          <p id="a7ce3671-691d-4588-b4f7-f6d3efde455f" class="">
+                            Os atributos são adicionados após o nome da tag e
+                            antes do <code>&gt;</code>sinal de fechamento.
+                          </p>
+                          <p id="e71d0998-df61-494d-9c50-b0bf2da04e14" class="">
+                            Vinculamos a uma página da Web
+                            adicionando <code>=</code>após o atributo e um URL
+                            como um valor entre aspas.
+                          </p>
+                          <pre
+                            id="a7fb0326-df2e-4a36-b0e3-56f1f98058cb"
+                            class="code code-wrap"
+                          ><code>&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;body&gt;  
 	&lt;a href=&quot;https://getmimo.com&quot;&gt;Best place to learn to code&lt;/a&gt;
  &lt;/body&gt;
-&lt;/html&gt;</code></pre><figure id="9aa35b99-5900-4a95-a0db-445d57600f18" class="image"><a href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%204.png"><img style="width:428px" src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%204.png"/></a></figure><p id="efca2ffb-3b52-4dea-834b-44323e949df8" class="">
-</p><p id="765666ac-89ca-4ff3-b3bb-c6b1d14b9a4e" class="">
-</p><p id="3bbdb6f9-3494-4c63-8fff-22129a472354" class="">
-</p><p id="ee3b4996-f3aa-4e2d-86a0-6d2d5dacd2eb" class="">
-</p><p id="583d5d9e-6754-445b-93a2-0e957c5c887d" class="">
-</p><p id="34b5047f-d3a6-49fb-9fe4-6b080c62b010" class="">
-</p><p id="71cc9a0b-0628-4fb1-9ab0-7a516fdafdde" class="">
-</p><p id="6f785ba2-2c2d-4d95-a7e3-52926eaaebd3" class="">
-</p><p id="9669643d-ab72-425e-b3cf-906daa7dfa4c" class="">
-</p><p id="5416785a-69ca-4fa0-adf1-4437ba7e52b1" class="">
-</p><p id="91716ed7-7f9e-4bb7-822f-79b33dce7385" class="">
-</p></details></li></ul></details></li></ul></details></li></ul><ul id="74d62eac-7c1f-40d9-a1ca-0db469c2954f" class="toggle"><li><details open=""><summary>2 HTML Intermediário</summary><ul id="52885dd2-82b6-498a-8152-af94b9ba4437" class="toggle"><li><details open=""><summary>2.1. Adicionando imagens</summary><p id="b802206f-c6f9-4da0-ab28-abcfceda78bf" class="">
-</p></details></li></ul><ul id="61e64afd-97f2-457d-83b5-eb17d244847a" class="toggle"><li><details open=""><summary>2.2. Coletando entrada</summary><p id="5238ba36-4d7e-4a92-b1a8-3472cf6f47ee" class="">
-</p></details></li></ul><ul id="6eb410d5-b343-45a6-afb4-9274a5e9a9eb" class="toggle"><li><details open=""><summary>2.3. Elementos de agrupamento</summary><p id="dcebdeb0-b4a9-41d8-ae1a-5c9fd4fbf40a" class="">
-</p></details></li></ul><ul id="e6c114ca-a23b-4c7c-b5d3-bd1c252a7ea0" class="toggle"><li><details open=""><summary>2.4. Listas de Construção</summary><p id="2c91be1d-e98c-4c6b-9847-e73ed97017cc" class="">
-</p></details></li></ul><ul id="7ee08d8e-74ea-4603-b745-23b74ff2de6c" class="toggle"><li><details open=""><summary>2.5. Vinculando páginas da Web</summary><p id="6cecc6f5-f5cd-4f44-b3c9-8de0168d9ebe" class="">
-</p></details></li></ul></details></li></ul><ul id="ec7626c6-aeef-4823-9629-64dcfdacc639" class="toggle"><li><details open=""><summary>3 Formulários em HTML</summary><ul id="c3c943ad-042d-43bf-bbb8-bba96e54717b" class="toggle"><li><details open=""><summary>3.1. Criando Formulários</summary><p id="548b7d74-2b29-4930-bf14-4f446d798414" class="">
-</p></details></li></ul><ul id="1d86e780-61ff-4feb-9c0b-e9535123be05" class="toggle"><li><details open=""><summary>3.2. Formulários com marcadores</summary><p id="0a2dd96f-48e8-4aaa-8516-35762425c2a5" class="">
-</p></details></li></ul></details></li></ul><ul id="80ea0914-c718-42ad-bb77-2210dd30da3a" class="toggle"><li><details open=""><summary>4 HTML Semântico</summary><ul id="eee251ac-cb18-42f3-b042-08f87bdca8aa" class="toggle"><li><details open=""><summary>4.1. Alternativas semânticas</summary><p id="ce4ae698-d241-4aee-b9df-0f21a6a6ac0a" class="">
-</p></details></li></ul><ul id="e0629f0d-5152-429f-99d0-5ac42331aa64" class="toggle"><li><details open=""><summary>4.2. Estrutura semântica da página</summary><p id="9ce65382-55cf-407f-bbeb-237b9dc803b9" class="">
-</p></details></li></ul><ul id="e1801449-6fe7-403f-b367-addfbc10b2d5" class="toggle"><li><details open=""><summary>4.3. Elementos que mudam a aparência</summary><p id="40494adc-ecac-4da3-afdb-672389abdd10" class="">
-</p></details></li></ul></details></li></ul><ul id="6621e027-177d-4c2b-92dc-ef664f3f7544" class="toggle"><li><details open=""><summary>5 Noções básicas de acessibilidade</summary><ul id="7e0b6e87-5a47-4667-8fe1-4ba00ec4741f" class="toggle"><li><details open=""><summary>5.1. Noções básicas de acessibilidade em HTML</summary><p id="924ceefe-ba43-49ad-a9a0-73f6b6956380" class="">
-</p></details></li></ul><ul id="04d9eb0c-65da-439f-9af5-2482d03a5f6b" class="toggle"><li><details open=""><summary>5.2. Acessibilidade WAI-ARIA</summary><p id="4250f49a-676b-4b9d-a0f9-b6537b66afd6" class="">
-</p></details></li></ul></details></li></ul><p id="6bea461a-9fad-4a09-89e2-908d7946376e" class="">
-</p></div></article></body></html>
+&lt;/html&gt;</code></pre>
+                          <figure
+                            id="9aa35b99-5900-4a95-a0db-445d57600f18"
+                            class="image"
+                          >
+                            <a
+                              href="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%204.png"
+                              ><img
+                                style="width: 428px"
+                                src="HTML%2031a3fb03996e42e7a141b2a2039c66a2/Untitled%204.png"
+                            /></a>
+                          </figure>
+                          <p
+                            id="efca2ffb-3b52-4dea-834b-44323e949df8"
+                            class=""
+                          ></p>
+                          <p
+                            id="765666ac-89ca-4ff3-b3bb-c6b1d14b9a4e"
+                            class=""
+                          ></p>
+                          <p
+                            id="3bbdb6f9-3494-4c63-8fff-22129a472354"
+                            class=""
+                          ></p>
+                          <p
+                            id="ee3b4996-f3aa-4e2d-86a0-6d2d5dacd2eb"
+                            class=""
+                          ></p>
+                          <p
+                            id="583d5d9e-6754-445b-93a2-0e957c5c887d"
+                            class=""
+                          ></p>
+                          <p
+                            id="34b5047f-d3a6-49fb-9fe4-6b080c62b010"
+                            class=""
+                          ></p>
+                          <p
+                            id="71cc9a0b-0628-4fb1-9ab0-7a516fdafdde"
+                            class=""
+                          ></p>
+                          <p
+                            id="6f785ba2-2c2d-4d95-a7e3-52926eaaebd3"
+                            class=""
+                          ></p>
+                          <p
+                            id="9669643d-ab72-425e-b3cf-906daa7dfa4c"
+                            class=""
+                          ></p>
+                          <p
+                            id="5416785a-69ca-4fa0-adf1-4437ba7e52b1"
+                            class=""
+                          ></p>
+                          <p
+                            id="91716ed7-7f9e-4bb7-822f-79b33dce7385"
+                            class=""
+                          ></p>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <ul id="74d62eac-7c1f-40d9-a1ca-0db469c2954f" class="toggle">
+          <li>
+            <details open="">
+              <summary>2 HTML Intermediário</summary>
+              <ul id="52885dd2-82b6-498a-8152-af94b9ba4437" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>2.1. Adicionando imagens</summary>
+                    <p id="b802206f-c6f9-4da0-ab28-abcfceda78bf" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="61e64afd-97f2-457d-83b5-eb17d244847a" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>2.2. Coletando entrada</summary>
+                    <p id="5238ba36-4d7e-4a92-b1a8-3472cf6f47ee" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="6eb410d5-b343-45a6-afb4-9274a5e9a9eb" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>2.3. Elementos de agrupamento</summary>
+                    <p id="dcebdeb0-b4a9-41d8-ae1a-5c9fd4fbf40a" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="e6c114ca-a23b-4c7c-b5d3-bd1c252a7ea0" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>2.4. Listas de Construção</summary>
+                    <p id="2c91be1d-e98c-4c6b-9847-e73ed97017cc" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="7ee08d8e-74ea-4603-b745-23b74ff2de6c" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>2.5. Vinculando páginas da Web</summary>
+                    <p id="6cecc6f5-f5cd-4f44-b3c9-8de0168d9ebe" class=""></p>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <ul id="ec7626c6-aeef-4823-9629-64dcfdacc639" class="toggle">
+          <li>
+            <details open="">
+              <summary>3 Formulários em HTML</summary>
+              <ul id="c3c943ad-042d-43bf-bbb8-bba96e54717b" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>3.1. Criando Formulários</summary>
+                    <p id="548b7d74-2b29-4930-bf14-4f446d798414" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="1d86e780-61ff-4feb-9c0b-e9535123be05" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>3.2. Formulários com marcadores</summary>
+                    <p id="0a2dd96f-48e8-4aaa-8516-35762425c2a5" class=""></p>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <ul id="80ea0914-c718-42ad-bb77-2210dd30da3a" class="toggle">
+          <li>
+            <details open="">
+              <summary>4 HTML Semântico</summary>
+              <ul id="eee251ac-cb18-42f3-b042-08f87bdca8aa" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>4.1. Alternativas semânticas</summary>
+                    <p id="ce4ae698-d241-4aee-b9df-0f21a6a6ac0a" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="e0629f0d-5152-429f-99d0-5ac42331aa64" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>4.2. Estrutura semântica da página</summary>
+                    <p id="9ce65382-55cf-407f-bbeb-237b9dc803b9" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="e1801449-6fe7-403f-b367-addfbc10b2d5" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>4.3. Elementos que mudam a aparência</summary>
+                    <p id="40494adc-ecac-4da3-afdb-672389abdd10" class=""></p>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <ul id="6621e027-177d-4c2b-92dc-ef664f3f7544" class="toggle">
+          <li>
+            <details open="">
+              <summary>5 Noções básicas de acessibilidade</summary>
+              <ul id="7e0b6e87-5a47-4667-8fe1-4ba00ec4741f" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>
+                      5.1. Noções básicas de acessibilidade em HTML
+                    </summary>
+                    <p id="924ceefe-ba43-49ad-a9a0-73f6b6956380" class=""></p>
+                  </details>
+                </li>
+              </ul>
+              <ul id="04d9eb0c-65da-439f-9af5-2482d03a5f6b" class="toggle">
+                <li>
+                  <details open="">
+                    <summary>5.2. Acessibilidade WAI-ARIA</summary>
+                    <p id="4250f49a-676b-4b9d-a0f9-b6537b66afd6" class=""></p>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <p id="6bea461a-9fad-4a09-89e2-908d7946376e" class=""></p>
+      </div>
+    </article>
+  </body>
+</html>
